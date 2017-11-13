@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LatipaySDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if let url = Bundle.main.url(forResource: "latipay_config", withExtension: "plist"),
+            let config = NSDictionary(contentsOf: url) as? Dictionary<String, String> {
+            LatipaySDK.setup(apiKey: config["api_key"]!, userId: config["user_id"]!, walletId: config["wallet_id"]!, scheme: "latipay")
+        }
         return true
     }
 

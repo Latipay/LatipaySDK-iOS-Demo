@@ -1,0 +1,4 @@
+framework module LatipaySDK {
+    header "LatipaySDK-Swift.h"
+    requires objc
+}

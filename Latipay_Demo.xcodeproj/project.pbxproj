@@ -12,7 +12,24 @@
 		E1AE1DBC1FB98B4F0032AB1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1AE1DBA1FB98B4F0032AB1B /* Main.storyboard */; };
 		E1AE1DBE1FB98B4F0032AB1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1AE1DBD1FB98B4F0032AB1B /* Assets.xcassets */; };
 		E1AE1DC11FB98B4F0032AB1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1AE1DBF1FB98B4F0032AB1B /* LaunchScreen.storyboard */; };
+		E1AE1DC91FB98B820032AB1B /* LatipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AE1DC81FB98B820032AB1B /* LatipaySDK.framework */; };
+		E1AE1DCA1FB98C350032AB1B /* LatipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AE1DC81FB98B820032AB1B /* LatipaySDK.framework */; };
+		E1AE1DCB1FB98C350032AB1B /* LatipaySDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1AE1DC81FB98B820032AB1B /* LatipaySDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E1AE1DCC1FB98C350032AB1B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E1AE1DCB1FB98C350032AB1B /* LatipaySDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E1AE1DB31FB98B4F0032AB1B /* Latipay_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Latipay_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +39,7 @@
 		E1AE1DBD1FB98B4F0032AB1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1AE1DC01FB98B4F0032AB1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1AE1DC21FB98B4F0032AB1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1AE1DC81FB98B820032AB1B /* LatipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LatipaySDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1AE1DCA1FB98C350032AB1B /* LatipaySDK.framework in Frameworks */,
+				E1AE1DC91FB98B820032AB1B /* LatipaySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +74,7 @@
 		E1AE1DB51FB98B4F0032AB1B /* Latipay_Demo */ = {
 			isa = PBXGroup;
 			children = (
+				E1AE1DC81FB98B820032AB1B /* LatipaySDK.framework */,
 				E1AE1DB61FB98B4F0032AB1B /* AppDelegate.swift */,
 				E1AE1DB81FB98B4F0032AB1B /* ViewController.swift */,
 				E1AE1DBA1FB98B4F0032AB1B /* Main.storyboard */,
@@ -74,6 +95,7 @@
 				E1AE1DAF1FB98B4F0032AB1B /* Sources */,
 				E1AE1DB01FB98B4F0032AB1B /* Frameworks */,
 				E1AE1DB11FB98B4F0032AB1B /* Resources */,
+				E1AE1DCC1FB98C350032AB1B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,7 +297,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V93X4GTH7Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Latipay_Demo",
+				);
 				INFOPLIST_FILE = Latipay_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.latipay.sdk.Latipay-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -289,7 +317,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V93X4GTH7Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Latipay_Demo",
+				);
 				INFOPLIST_FILE = Latipay_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.latipay.sdk.Latipay-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
