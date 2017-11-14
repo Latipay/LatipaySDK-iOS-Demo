@@ -24,7 +24,7 @@ let para = [
     "price": "175.00"
     ]
 
-LatipaySDK.pay(order: para) { (result, error) in
+LatipaySDK.pay(order: para) { (latipayOrder, error) in
 
     //...save orderId for check later
     
