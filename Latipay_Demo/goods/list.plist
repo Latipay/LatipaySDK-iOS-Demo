@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<string>1</string>
+		<key>product_name</key>
+		<string>Blue by Betsey Johnson Women&apos;s SB-Kay Heeled Sandal</string>
+		<key>price</key>
+		<string>$0.01</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>2</string>
+		<key>product_name</key>
+		<string>Fossil Women&apos;s Rose Goldtone Blane Watch</string>
+		<key>price</key>
+		<string>$0.02</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>3</string>
+		<key>product_name</key>
+		<string>Frances Valentine Small Flannery, Haircalf</string>
+		<key>price</key>
+		<string>$0.03</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>4</string>
+		<key>product_name</key>
+		<string>Dear Drew by Drew Barrymore Women&apos;s Christopher St Button Down Long Sleeve Blouse</string>
+		<key>price</key>
+		<string>$0.04</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>5</string>
+		<key>product_name</key>
+		<string>Dear Drew by Drew Barrymore Fold Me and Hold Me Clutch</string>
+		<key>price</key>
+		<string>$0.05</string>
+	</dict>
+</array>
+</plist>

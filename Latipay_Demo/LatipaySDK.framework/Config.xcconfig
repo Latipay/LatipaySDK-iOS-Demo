@@ -1,3 +1,0 @@
-SWIFT_INCLUDE_PATHS = $(SRCROOT)/
-
-MODULEMAP_FILE = $(SRCROOT)/module.modulemap

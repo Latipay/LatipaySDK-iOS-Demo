@@ -8,23 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		E1AE1DB71FB98B4F0032AB1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE1DB61FB98B4F0032AB1B /* AppDelegate.swift */; };
-		E1AE1DB91FB98B4F0032AB1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE1DB81FB98B4F0032AB1B /* ViewController.swift */; };
 		E1AE1DBC1FB98B4F0032AB1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1AE1DBA1FB98B4F0032AB1B /* Main.storyboard */; };
 		E1AE1DBE1FB98B4F0032AB1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1AE1DBD1FB98B4F0032AB1B /* Assets.xcassets */; };
 		E1AE1DC11FB98B4F0032AB1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1AE1DBF1FB98B4F0032AB1B /* LaunchScreen.storyboard */; };
-		E1AE1DC91FB98B820032AB1B /* LatipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AE1DC81FB98B820032AB1B /* LatipaySDK.framework */; };
-		E1AE1DCA1FB98C350032AB1B /* LatipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AE1DC81FB98B820032AB1B /* LatipaySDK.framework */; };
-		E1AE1DCB1FB98C350032AB1B /* LatipaySDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1AE1DC81FB98B820032AB1B /* LatipaySDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E1D4A14C1FBA2F3100BE2F63 /* latipay_config.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D4A14B1FBA2F3100BE2F63 /* latipay_config.plist */; };
+		E1D4A14E1FBA2FB800BE2F63 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D4A14D1FBA2FB800BE2F63 /* TableViewController.swift */; };
+		E1D4A1541FBA34F600BE2F63 /* list.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D4A1521FBA34F600BE2F63 /* list.plist */; };
+		E1D4A1551FBA34F600BE2F63 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D4A1531FBA34F600BE2F63 /* 1.jpg */; };
+		E1D4A15A1FBA3B4700BE2F63 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D4A1561FBA3B4700BE2F63 /* 5.jpg */; };
+		E1D4A15B1FBA3B4700BE2F63 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D4A1571FBA3B4700BE2F63 /* 2.jpg */; };
+		E1D4A15C1FBA3B4700BE2F63 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D4A1581FBA3B4700BE2F63 /* 4.jpg */; };
+		E1D4A15D1FBA3B4700BE2F63 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D4A1591FBA3B4700BE2F63 /* 3.jpg */; };
+		E1D4A1881FBA4A6200BE2F63 /* LatipaySDK_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D4A1871FBA4A6200BE2F63 /* LatipaySDK_Swift.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		E1D4A18C1FBA4BB000BE2F63 /* LatipaySDK_Swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1D4A1871FBA4A6200BE2F63 /* LatipaySDK_Swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E1AE1DCC1FB98C350032AB1B /* Embed Frameworks */ = {
+		E1D4A1841FBA4A0300BE2F63 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E1AE1DCB1FB98C350032AB1B /* LatipaySDK.framework in Embed Frameworks */,
+				E1D4A18C1FBA4BB000BE2F63 /* LatipaySDK_Swift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -34,12 +40,19 @@
 /* Begin PBXFileReference section */
 		E1AE1DB31FB98B4F0032AB1B /* Latipay_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Latipay_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AE1DB61FB98B4F0032AB1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1AE1DB81FB98B4F0032AB1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E1AE1DBB1FB98B4F0032AB1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1AE1DBD1FB98B4F0032AB1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1AE1DC01FB98B4F0032AB1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1AE1DC21FB98B4F0032AB1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1AE1DC81FB98B820032AB1B /* LatipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LatipaySDK.framework; sourceTree = "<group>"; };
+		E1D4A14B1FBA2F3100BE2F63 /* latipay_config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = latipay_config.plist; sourceTree = "<group>"; };
+		E1D4A14D1FBA2FB800BE2F63 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		E1D4A1521FBA34F600BE2F63 /* list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = list.plist; sourceTree = "<group>"; };
+		E1D4A1531FBA34F600BE2F63 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		E1D4A1561FBA3B4700BE2F63 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		E1D4A1571FBA3B4700BE2F63 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		E1D4A1581FBA3B4700BE2F63 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		E1D4A1591FBA3B4700BE2F63 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		E1D4A1871FBA4A6200BE2F63 /* LatipaySDK_Swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LatipaySDK_Swift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,8 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1AE1DCA1FB98C350032AB1B /* LatipaySDK.framework in Frameworks */,
-				E1AE1DC91FB98B820032AB1B /* LatipaySDK.framework in Frameworks */,
+				E1D4A1881FBA4A6200BE2F63 /* LatipaySDK_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +72,7 @@
 			children = (
 				E1AE1DB51FB98B4F0032AB1B /* Latipay_Demo */,
 				E1AE1DB41FB98B4F0032AB1B /* Products */,
+				E1D4A1621FBA442400BE2F63 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,15 +87,37 @@
 		E1AE1DB51FB98B4F0032AB1B /* Latipay_Demo */ = {
 			isa = PBXGroup;
 			children = (
-				E1AE1DC81FB98B820032AB1B /* LatipaySDK.framework */,
+				E1D4A1871FBA4A6200BE2F63 /* LatipaySDK_Swift.framework */,
+				E1D4A1511FBA34F600BE2F63 /* goods */,
 				E1AE1DB61FB98B4F0032AB1B /* AppDelegate.swift */,
-				E1AE1DB81FB98B4F0032AB1B /* ViewController.swift */,
+				E1D4A14D1FBA2FB800BE2F63 /* TableViewController.swift */,
 				E1AE1DBA1FB98B4F0032AB1B /* Main.storyboard */,
 				E1AE1DBD1FB98B4F0032AB1B /* Assets.xcassets */,
 				E1AE1DBF1FB98B4F0032AB1B /* LaunchScreen.storyboard */,
+				E1D4A14B1FBA2F3100BE2F63 /* latipay_config.plist */,
 				E1AE1DC21FB98B4F0032AB1B /* Info.plist */,
 			);
 			path = Latipay_Demo;
+			sourceTree = "<group>";
+		};
+		E1D4A1511FBA34F600BE2F63 /* goods */ = {
+			isa = PBXGroup;
+			children = (
+				E1D4A1521FBA34F600BE2F63 /* list.plist */,
+				E1D4A1571FBA3B4700BE2F63 /* 2.jpg */,
+				E1D4A1591FBA3B4700BE2F63 /* 3.jpg */,
+				E1D4A1581FBA3B4700BE2F63 /* 4.jpg */,
+				E1D4A1561FBA3B4700BE2F63 /* 5.jpg */,
+				E1D4A1531FBA34F600BE2F63 /* 1.jpg */,
+			);
+			path = goods;
+			sourceTree = "<group>";
+		};
+		E1D4A1621FBA442400BE2F63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,7 +130,7 @@
 				E1AE1DAF1FB98B4F0032AB1B /* Sources */,
 				E1AE1DB01FB98B4F0032AB1B /* Frameworks */,
 				E1AE1DB11FB98B4F0032AB1B /* Resources */,
-				E1AE1DCC1FB98C350032AB1B /* Embed Frameworks */,
+				E1D4A1841FBA4A0300BE2F63 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,9 +180,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1D4A1541FBA34F600BE2F63 /* list.plist in Resources */,
 				E1AE1DC11FB98B4F0032AB1B /* LaunchScreen.storyboard in Resources */,
 				E1AE1DBE1FB98B4F0032AB1B /* Assets.xcassets in Resources */,
+				E1D4A1551FBA34F600BE2F63 /* 1.jpg in Resources */,
+				E1D4A15A1FBA3B4700BE2F63 /* 5.jpg in Resources */,
+				E1D4A15D1FBA3B4700BE2F63 /* 3.jpg in Resources */,
 				E1AE1DBC1FB98B4F0032AB1B /* Main.storyboard in Resources */,
+				E1D4A15C1FBA3B4700BE2F63 /* 4.jpg in Resources */,
+				E1D4A15B1FBA3B4700BE2F63 /* 2.jpg in Resources */,
+				E1D4A14C1FBA2F3100BE2F63 /* latipay_config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1AE1DB91FB98B4F0032AB1B /* ViewController.swift in Sources */,
+				E1D4A14E1FBA2FB800BE2F63 /* TableViewController.swift in Sources */,
 				E1AE1DB71FB98B4F0032AB1B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,15 +337,17 @@
 		E1AE1DC61FB98B4F0032AB1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V93X4GTH7Q;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Latipay_Demo",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Latipay_Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.latipay.sdk.Latipay-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -315,15 +359,17 @@
 		E1AE1DC71FB98B4F0032AB1B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V93X4GTH7Q;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Latipay_Demo",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Latipay_Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.latipay.sdk.Latipay-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";

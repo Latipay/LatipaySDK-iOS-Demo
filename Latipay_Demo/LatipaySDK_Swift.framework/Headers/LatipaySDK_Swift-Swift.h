@@ -184,10 +184,10 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Wunknown-pragmas"
 #pragma clang diagnostic ignored "-Wnullability"
 
-SWIFT_MODULE_NAMESPACE_PUSH("LatipaySDK")
+SWIFT_MODULE_NAMESPACE_PUSH("LatipaySDK_Swift")
 @class NSError;
 
-SWIFT_CLASS("_TtC10LatipaySDK10LatipaySDK")
+SWIFT_CLASS("_TtC16LatipaySDK_Swift10LatipaySDK")
 @interface LatipaySDK : NSObject
 + (void)setupWithApiKey:(NSString * _Nonnull)apiKey userId:(NSString * _Nonnull)userId walletId:(NSString * _Nonnull)walletId scheme:(NSString * _Nonnull)scheme;
 + (void)payWithOrder:(NSDictionary<NSString *, NSString *> * _Nonnull)order completion:(void (^ _Nonnull)(NSDictionary<NSString *, NSString *> * _Nullable, NSError * _Nullable))completion;

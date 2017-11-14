@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LatipaySDK
+import LatipaySDK_Swift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
