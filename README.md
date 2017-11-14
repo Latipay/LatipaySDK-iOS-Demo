@@ -28,7 +28,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions
                 "product_name": "Fossil Women's Rose Goldtone Blane Watch",
                 "price": "175.00"]
 
-    LatipaySDK.pay(order: para) {[weak self] (result, error) in
+    LatipaySDK.pay(order: para) { (result, error) in
         //...save orderId for check later
     }
 }
