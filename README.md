@@ -2,7 +2,11 @@
 
 Using Latipay sdk to intergrate Alipay and Wechatpay
 
+![](screenshot/home.png)
+
 1. Download framework and drag it into your project
+
+![](screenshot/framework.png)
 
 2. Setup Latipay info
 
