@@ -69,8 +69,8 @@ class TableViewController: UITableViewController {
                     "product_name": data["product_name"]!,
                     "price": data["price"]!]
         
-        LatipaySDK.pay(order: para) {[weak self] (result, error) in
-            self?.dealwithLatipayResult(result: result, error: error)
+        LatipaySDK.pay(order: para) {[weak self] (latipayOrder, error) in
+            self?.dealwithLatipayResult(latipayOrder: latipayOrder, error: error)
         }
     }
     
@@ -86,21 +86,21 @@ class TableViewController: UITableViewController {
                     "product_name": data["product_name"]!,
                     "price": data["price"]!]
         
-        LatipaySDK.pay(order: para) {[weak self] (result, error) in
-            self?.dealwithLatipayResult(result: result, error: error)
+        LatipaySDK.pay(order: para) {[weak self] (latipayOrder, error) in
+            self?.dealwithLatipayResult(latipayOrder: latipayOrder, error: error)
         }
     }
     
-    func dealwithLatipayResult(result: Dictionary<String, String>?, error: LatipayError?)  {
+    func dealwithLatipayResult(latipayOrder: Dictionary<String, String>?, error: LatipayError?)  {
         if let e = error {
             UIAlertView(title: "", message: e.localizedDescription, delegate: nil, cancelButtonTitle: "Cancel").show()
             return
         }
         
-        if let result = result {
-            let orderId = result["order_id"]!
-            let status = result["status"]!           //"unpaid", here always unpaid
-            let method = result["payment_method"]!   //"alipay"
+        if let order = latipayOrder {
+            let orderId = order["order_id"]!
+            let status = order["status"]!           //"unpaid", here always unpaid
+            let method = order["payment_method"]!   //"alipay"
             
             print("method: \(method) orderId: \(orderId) status: \(status)")
             
