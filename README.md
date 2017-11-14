@@ -51,3 +51,11 @@ func application(_ app: UIApplication, open url: URL,
 }
 ```
 
+### 5. no more steps in App
+
+---
+If you plan to save the payment information in your sever, you need support a benk-end api to us.
+
+
+
+
