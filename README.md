@@ -21,6 +21,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions
 
 ```swift
 @objc func wechatPay(_ btn: UIButton?) {
+
     let para = ["payment_method": LatipayMethod.wechatpay.rawValue,
                 "amount": "1",
                 "merchant_reference":"reference",
@@ -38,10 +39,12 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions
 ```swift
 func application(_ app: UIApplication, open url: URL, 
     options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    
     LatipaySDK.processLatipayRequest(url: url) { (latipayOrder, error) in
 
         //save orderId and status into server for customer
     }
+    
     return true
 }
 ```
