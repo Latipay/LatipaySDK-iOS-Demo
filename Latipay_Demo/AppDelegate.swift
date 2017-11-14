@@ -59,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LatipaySDK.processLatipayRequest(url: url) { (latipayOrder, error) in
             print("latipay result", latipayOrder as Any, error as Any)
             
+            //save orderId and status into server for customer
         }
         return true
     }
