@@ -47,6 +47,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        LatipaySDK.processLatipayRequest(url: url) { (latipayOrder, error) in
+            print("latipay result", latipayOrder as Any, error as Any)
+        }
+        return true
+    }
+    
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        LatipaySDK.processLatipayRequest(url: url) { (latipayOrder, error) in
+            print("latipay result", latipayOrder as Any, error as Any)
+            
+        }
+        return true
+    }
 }
 

@@ -46,7 +46,7 @@ class TableViewController: UITableViewController {
         titleLbl.text = obj["product_name"]
         
         let priceLbl = cell.viewWithTag(3) as! UILabel
-        priceLbl.text = obj["price"]
+        priceLbl.text = "$\(obj["price"]!)"
         
         let alipayBtn = cell.viewWithTag(4) as! UIButton
         alipayBtn.addTarget(self, action:#selector(TableViewController.alipay), for: UIControlEvents.touchUpInside)
@@ -62,15 +62,15 @@ class TableViewController: UITableViewController {
             let row = tableView.indexPath(for: cell)?.row else {
             return
         }
-        var para = dataSource[row]
-        para["amount"] = "1"
-        para["merchant_reference"] = "reference"
-        para["payment_method"] = "alipay"
+        let data = dataSource[row]
+        let para = ["payment_method": LatipayMethod.alipay.rawValue,
+                    "amount": "1",
+                    "merchant_reference":"reference",
+                    "product_name": data["product_name"]!,
+                    "price": data["price"]!]
         
-        LatipaySDK.pay(order: para) { (result, error) in
-            if let e = error {
-                UIAlertView(title: "", message: e.localizedDescription, delegate: nil, cancelButtonTitle: "Cancel").show()
-            }
+        LatipaySDK.pay(order: para) {[weak self] (result, error) in
+            self?.dealwithLatipayResult(result: result, error: error)
         }
     }
     
@@ -79,62 +79,32 @@ class TableViewController: UITableViewController {
             let row = tableView.indexPath(for: cell)?.row else {
                 return
         }
-        var para = dataSource[row]
-        para["amount"] = "1"
-        para["merchant_reference"] = "reference"
-        para["payment_method"] = "wechat"
+        let data = dataSource[row]
+        let para = ["payment_method": LatipayMethod.wechatpay.rawValue,
+                    "amount": "1",
+                    "merchant_reference":"reference",
+                    "product_name": data["product_name"]!,
+                    "price": data["price"]!]
         
-        LatipaySDK.pay(order: para) { (result, error) in
-            if let e = error {
-                UIAlertView(title: "", message: e.localizedDescription, delegate: nil, cancelButtonTitle: "Cancel").show()
-            }
+        LatipaySDK.pay(order: para) {[weak self] (result, error) in
+            self?.dealwithLatipayResult(result: result, error: error)
         }
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func dealwithLatipayResult(result: Dictionary<String, String>?, error: LatipayError?)  {
+        if let e = error {
+            UIAlertView(title: "", message: e.localizedDescription, delegate: nil, cancelButtonTitle: "Cancel").show()
+            return
+        }
+        
+        if let result = result {
+            let orderId = result["order_id"]!
+            let status = result["status"]!           //"unpaid", here always unpaid
+            let method = result["payment_method"]!   //"alipay"
+            
+            print("method: \(method) orderId: \(orderId) status: \(status)")
+            
+            //recommend to save orderId in server for checking payment status later.
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

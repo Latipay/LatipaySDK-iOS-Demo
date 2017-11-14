@@ -191,8 +191,17 @@ SWIFT_CLASS("_TtC16LatipaySDK_Swift10LatipaySDK")
 @interface LatipaySDK : NSObject
 + (void)setupWithApiKey:(NSString * _Nonnull)apiKey userId:(NSString * _Nonnull)userId walletId:(NSString * _Nonnull)walletId scheme:(NSString * _Nonnull)scheme;
 + (void)payWithOrder:(NSDictionary<NSString *, NSString *> * _Nonnull)order completion:(void (^ _Nonnull)(NSDictionary<NSString *, NSString *> * _Nullable, NSError * _Nullable))completion;
-+ (void)processAlipayRequestWithUrl:(NSURL * _Nonnull)url completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completion;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface LatipaySDK (SWIFT_EXTENSION(LatipaySDK_Swift))
++ (void)processLatipayRequestWithUrl:(NSURL * _Nonnull)url completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completion;
+@end
+
+
+@interface LatipaySDK (SWIFT_EXTENSION(LatipaySDK_Swift))
++ (void)getPaymentStatusWithId:(NSString * _Nonnull)id completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completion;
 @end
 
 SWIFT_MODULE_NAMESPACE_POP
