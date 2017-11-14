@@ -1,14 +1,14 @@
 # LatipaySDK-iOS-Demo
 
-Using Latipay sdk to intergrate Alipay and Wechatpay
+Using [Latipay](http://www.latipay.net) sdk to intergrate Alipay and Wechatpay
 
 ![](screenshot/home.png)
 
-1. Download framework and drag it into your project
+###1. Download framework and drag it into your project
 
 ![](screenshot/framework.png)
 
-2. Setup Latipay info
+###2. Setup Latipay info, [you can get apiKey here](https://merchant.latipay.co.nz/user/regist.action)
 
 ```swift
 
@@ -16,7 +16,7 @@ LatipaySDK.setup(apiKey: "XXXXXX", userId: "XXXXXX", walletId: "XXXXXX", scheme:
 
 ```
 
-3. App user purchases with wechat or alipay app
+###3. App user purchases with goods using wechat or alipay app
 
 ```swift
 
@@ -36,7 +36,7 @@ LatipaySDK.pay(order: para) { (latipayOrder, error) in
 
 ```
 
-4. Wechat or Alipay app will send the result of payment to your app through scheme.
+###4. Wechat or Alipay app will send the result of payment to your app through scheme.
 
 ```swift
 func application(_ app: UIApplication, open url: URL, 
