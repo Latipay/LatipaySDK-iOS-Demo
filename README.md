@@ -44,7 +44,7 @@ func application(_ app: UIApplication, open url: URL,
     
     LatipaySDK.processLatipayRequest(url: url) { (latipayOrder, error) in
 
-        //save orderId and status into server for customer
+        //save orderId and status into server
     }
     
     return true
