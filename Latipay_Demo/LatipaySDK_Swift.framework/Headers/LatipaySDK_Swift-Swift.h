@@ -174,6 +174,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_feature(modules)
 @import ObjectiveC;
 @import Foundation;
+@import UIKit;
+@import CoreGraphics;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -189,20 +191,97 @@ SWIFT_MODULE_NAMESPACE_PUSH("LatipaySDK_Swift")
 
 SWIFT_CLASS("_TtC16LatipaySDK_Swift10LatipaySDK")
 @interface LatipaySDK : NSObject
-+ (void)setupWithApiKey:(NSString * _Nonnull)apiKey userId:(NSString * _Nonnull)userId walletId:(NSString * _Nonnull)walletId scheme:(NSString * _Nonnull)scheme;
++ (void)setupWithApiKey:(NSString * _Nonnull)apiKey userId:(NSString * _Nonnull)userId walletId:(NSString * _Nonnull)walletId;
 + (void)payWithOrder:(NSDictionary<NSString *, NSString *> * _Nonnull)order completion:(void (^ _Nonnull)(NSDictionary<NSString *, NSString *> * _Nullable, NSError * _Nullable))completion;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
 @interface LatipaySDK (SWIFT_EXTENSION(LatipaySDK_Swift))
-+ (void)processLatipayRequestWithUrl:(NSURL * _Nonnull)url completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completion;
++ (void)processPayRequestWithUrl:(NSURL * _Nonnull)url completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completion;
 @end
 
 
 @interface LatipaySDK (SWIFT_EXTENSION(LatipaySDK_Swift))
 + (void)getPaymentStatusWithId:(NSString * _Nonnull)id completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completion;
 @end
+
+
+/// The PKHUD object controls showing and hiding of the HUD, as well as its contents and touch response behavior.
+SWIFT_CLASS("_TtC16LatipaySDK_Swift5PKHUD")
+@interface PKHUD : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_PROTOCOL("_TtP16LatipaySDK_Swift14PKHUDAnimating_")
+@protocol PKHUDAnimating
+- (void)startAnimation;
+@optional
+- (void)stopAnimation;
+@end
+
+@class NSCoder;
+
+/// PKHUDSquareBaseView provides a square view, which you can subclass and add additional views to.
+SWIFT_CLASS("_TtC16LatipaySDK_Swift19PKHUDSquareBaseView")
+@interface PKHUDSquareBaseView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
+@end
+
+
+/// PKHUDErrorView provides an animated error (cross) view.
+SWIFT_CLASS("_TtC16LatipaySDK_Swift14PKHUDErrorView")
+@interface PKHUDErrorView : PKHUDSquareBaseView <PKHUDAnimating>
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)startAnimation;
+- (void)stopAnimation;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+
+/// PKHUDCheckmarkView provides an animated success (checkmark) view.
+SWIFT_CLASS("_TtC16LatipaySDK_Swift16PKHUDSuccessView")
+@interface PKHUDSuccessView : PKHUDSquareBaseView <PKHUDAnimating>
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)startAnimation;
+- (void)stopAnimation;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+/// PKHUDSystemActivityIndicatorView provides the system UIActivityIndicatorView as an alternative.
+SWIFT_CLASS("_TtC16LatipaySDK_Swift32PKHUDSystemActivityIndicatorView")
+@interface PKHUDSystemActivityIndicatorView : PKHUDSquareBaseView <PKHUDAnimating>
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
+- (void)startAnimation;
+@end
+
+
+/// PKHUDWideBaseView provides a wide base view, which you can subclass and add additional views to.
+SWIFT_CLASS("_TtC16LatipaySDK_Swift17PKHUDWideBaseView")
+@interface PKHUDWideBaseView : UIView
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// PKHUDTextView provides a wide, three line text view, which you can use to display information.
+SWIFT_CLASS("_TtC16LatipaySDK_Swift13PKHUDTextView")
+@interface PKHUDTextView : PKHUDWideBaseView
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
 
 SWIFT_MODULE_NAMESPACE_POP
 #pragma clang diagnostic pop

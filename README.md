@@ -8,6 +8,17 @@ Using [Latipay](http://www.latipay.net) sdk to intergrate Alipay and Wechatpay
 
 ![](screenshot/framework.png)
 
+
+for iOS 9.0 and later, please add the following [Launch Services Key](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html) into info.plist;
+
+```xml
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>alipay</string>
+    <string>weixin</string>
+</array>
+```
+
 ### 2. Setup Latipay info, [you can get apiKey here](https://merchant.latipay.co.nz/user/regist.action)
 
 ```swift
@@ -52,6 +63,8 @@ func application(_ app: UIApplication, open url: URL,
 ```
 
 ### 5. no more steps in App
+
+
 
 ---
 If you plan to save the payment information in your sever, you need support a benk-end api to us.

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //save latipay information (api_key, user_id, wallet_id) in latipay_config.plist
         if let url = Bundle.main.url(forResource: "latipay_config", withExtension: "plist"),
             let config = NSDictionary(contentsOf: url) as? [String: String] {
-            LatipaySDK.setup(apiKey: config["api_key"]!, userId: config["user_id"]!, walletId: config["wallet_id"]!, scheme: "latipay")
+            LatipaySDK.setup(apiKey: config["api_key"]!, userId: config["user_id"]!, walletId: config["wallet_id"]!)
         }
         
         return true
@@ -50,18 +50,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        LatipaySDK.processLatipayRequest(url: url) { (latipayOrder, error) in
-            print("latipay result", latipayOrder as Any, error as Any)
-        }
-        return true
+        return self.application(application, open: url)
     }
     
-    
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        LatipaySDK.processLatipayRequest(url: url) { (latipayOrder, error) in
-            print("latipay result", latipayOrder as Any, error as Any)
+        
+        LatipaySDK.processPayRequest(url: url) { (result, error) in
+            print("latipay result", result as Any, error as Any)
             
             //save orderId and status into server for customer
+            if let order = result?["latipay_info"] as? [String: Any], let id = order["orderId"] as? String, let status = order["status"] as? String {
+                UIAlertView(title: "orderId: \(id)", message: "status: \(status)", delegate: nil, cancelButtonTitle: "Cancel").show()
+            }
         }
         return true
     }

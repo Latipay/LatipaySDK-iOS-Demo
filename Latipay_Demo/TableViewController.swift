@@ -64,10 +64,9 @@ class TableViewController: UITableViewController {
         }
         let data = dataSource[row]
         let para = ["payment_method": LatipayMethod.alipay.rawValue,
-                    "amount": "1",
+                    "amount": data["price"]!,
                     "merchant_reference":"reference",
-                    "product_name": data["product_name"]!,
-                    "price": data["price"]!]
+                    "product_name": data["product_name"]!]
         
         LatipaySDK.pay(order: para) {[weak self] (latipayOrder, error) in
             self?.dealwithLatipayResult(latipayOrder: latipayOrder, error: error)
@@ -81,10 +80,9 @@ class TableViewController: UITableViewController {
         }
         let data = dataSource[row]
         let para = ["payment_method": LatipayMethod.wechatpay.rawValue,
-                    "amount": "1",
+                    "amount": data["price"]!,
                     "merchant_reference":"reference",
-                    "product_name": data["product_name"]!,
-                    "price": data["price"]!]
+                    "product_name": data["product_name"]!]
         
         LatipaySDK.pay(order: para) {[weak self] (latipayOrder, error) in
             self?.dealwithLatipayResult(latipayOrder: latipayOrder, error: error)
