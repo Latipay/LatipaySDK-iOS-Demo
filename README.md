@@ -33,10 +33,10 @@ LatipaySDK.setup(apiKey: "XXXXXX", userId: "XXXXXX", walletId: "XXXXXX", scheme:
 
 let para = [
     "payment_method": "wechat",  //or alipay
-    "amount": "1",
+    "amount": "0.01",
     "merchant_reference":"a reference",
     "product_name": "Fossil Women's Rose Goldtone Blane Watch",
-    "price": "175.00"
+    "callback_url": "https://youwebsite.com/pay_callback"
     ]
 
 LatipaySDK.pay(order: para) { (latipayOrder, error) in
@@ -62,12 +62,7 @@ func application(_ app: UIApplication, open url: URL,
 }
 ```
 
-### 5. no more steps in App
-
-
-
----
-If you plan to save the payment information in your sever, you need support a benk-end api to us.
+### 5. No more steps in App
 
 
 

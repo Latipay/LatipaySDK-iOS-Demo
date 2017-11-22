@@ -7,7 +7,7 @@
 		<string>1</string>
 		<key>product_name</key>
 		<string>Blue by Betsey Johnson Women&apos;s SB-Kay Heeled Sandal</string>
-		<key>price</key>
+		<key>amount</key>
 		<string>0.01</string>
 	</dict>
 	<dict>
@@ -15,7 +15,7 @@
 		<string>2</string>
 		<key>product_name</key>
 		<string>Fossil Women&apos;s Rose Goldtone Blane Watch</string>
-		<key>price</key>
+		<key>amount</key>
 		<string>0.02</string>
 	</dict>
 	<dict>
@@ -23,7 +23,7 @@
 		<string>3</string>
 		<key>product_name</key>
 		<string>Frances Valentine Small Flannery, Haircalf</string>
-		<key>price</key>
+		<key>amount</key>
 		<string>0.03</string>
 	</dict>
 	<dict>
@@ -31,7 +31,7 @@
 		<string>4</string>
 		<key>product_name</key>
 		<string>Dear Drew by Drew Barrymore Women&apos;s Christopher St Button Down Long Sleeve Blouse</string>
-		<key>price</key>
+		<key>amount</key>
 		<string>0.04</string>
 	</dict>
 	<dict>
@@ -39,7 +39,7 @@
 		<string>5</string>
 		<key>product_name</key>
 		<string>Dear Drew by Drew Barrymore Fold Me and Hold Me Clutch</string>
-		<key>price</key>
+		<key>amount</key>
 		<string>0.05</string>
 	</dict>
 </array>
