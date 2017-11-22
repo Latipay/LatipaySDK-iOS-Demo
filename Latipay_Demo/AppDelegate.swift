@@ -18,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        //save latipay information (api_key, user_id, wallet_id) in latipay_config.plist
-        if let url = Bundle.main.url(forResource: "latipay_config", withExtension: "plist"),
-            let config = NSDictionary(contentsOf: url) as? [String: String] {
-            LatipaySDK.setup(apiKey: config["api_key"]!, userId: config["user_id"]!, walletId: config["wallet_id"]!)
-        }
+        LatipaySDK.setupDemoAccount()
+        
+        //or load latipay account (api_key, user_id, wallet_id) from plist
+        
+        //LatipaySDK.setup(apiKey: "your latipay apikey", userId: "your latipay userId", walletId: "your latipay walletId")
         
         return true
     }

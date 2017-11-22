@@ -46,7 +46,7 @@ class TableViewController: UITableViewController {
         titleLbl.text = obj["product_name"]
         
         let priceLbl = cell.viewWithTag(3) as! UILabel
-        priceLbl.text = "$\(obj["price"]!)"
+        priceLbl.text = "$\(obj["amount"]!)"
         
         let alipayBtn = cell.viewWithTag(4) as! UIButton
         alipayBtn.addTarget(self, action:#selector(TableViewController.alipay), for: UIControlEvents.touchUpInside)
