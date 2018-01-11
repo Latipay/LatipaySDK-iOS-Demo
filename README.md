@@ -1,8 +1,8 @@
-# LatipaySDK-iOS-Demo
+# LatipaySDK for iOS app
 
-Using [Latipay](http://www.latipay.net) sdk to intergrate Alipay and Wechatpay
+Using [Latipay](http://www.latipay.net) sdk to intergrate Alipay payment solution
 
-![](screenshot/home.png)
+![](screenshot/home.png?)
 
 ### 1. Download framework and drag it into your project
 
@@ -15,7 +15,6 @@ for iOS 9.0 and later, please add the following [Launch Services Key](https://de
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>alipay</string>
-    <string>weixin</string>
 </array>
 ```
 
@@ -27,14 +26,14 @@ LatipaySDK.setup(apiKey: "XXXXXX", userId: "XXXXXX", walletId: "XXXXXX", scheme:
 
 ```
 
-### 3. App user purchases with goods using wechat or alipay app
+### 3. App user purchases with goods using alipay app
 
 ```swift
 
 let para = [
-    "payment_method": "wechat",  //or alipay
+    "payment_method": "alipay",
     "amount": "0.01",
-    "merchant_reference":"a reference",
+    "merchant_reference":"12312-12312312",
     "product_name": "Fossil Women's Rose Goldtone Blane Watch",
     "callback_url": "https://youwebsite.com/pay_callback"
     ]
@@ -47,7 +46,7 @@ LatipaySDK.pay(order: para) { (latipayOrder, error) in
 
 ```
 
-### 4. Wechat or Alipay app will send the result of payment to your app through scheme.
+### 4. Alipay app will send the result of payment to your app through scheme.
 
 ```swift
 func application(_ app: UIApplication, open url: URL, 
@@ -62,8 +61,27 @@ func application(_ app: UIApplication, open url: URL,
 }
 ```
 
-### 5. No more steps in App
+### 5. In your web server, please support the below api for callback when payment successful or failed
 
+```
+POST https://yourwebsite.com/pay_callback
+```
 
+Parameters:
+
+```json
+{
+  "transaction_id": "43cb917ff8a6",
+  "merchant_reference": "dsi39ej430sks03",
+  "amount": "120.00",
+  "currency": "NZD",
+  "payment_method": "alipay",
+  "pay_time": "2017-07-07 10:53:50",
+  "status" : "paid",
+  "signature": "14d5b06a2a5a2ec509a148277ed4cbeb3c43301b239f080a3467ff0aba4070e3",
+}
+```
+
+[More info about this notify api](http://doc.latipay.net/v2/latipay-hosted-online.html#Payment-Result-Asynchronous-Notification)
 
 

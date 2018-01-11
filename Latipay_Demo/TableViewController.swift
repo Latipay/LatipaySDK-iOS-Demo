@@ -50,9 +50,6 @@ class TableViewController: UITableViewController {
         
         let alipayBtn = cell.viewWithTag(4) as! UIButton
         alipayBtn.addTarget(self, action:#selector(TableViewController.alipay), for: UIControlEvents.touchUpInside)
-        
-        let wechatPayBtn = cell.viewWithTag(5) as! UIButton
-        wechatPayBtn.addTarget(self, action:#selector(TableViewController.wechatPay), for: UIControlEvents.touchUpInside)
 
         return cell
     }
@@ -65,26 +62,9 @@ class TableViewController: UITableViewController {
         let data = dataSource[row]
         let para = ["payment_method": LatipayMethod.alipay.rawValue,
                     "amount": data["amount"]!,
-                    "merchant_reference":"reference",
+                    "merchant_reference":"12312-12312312-12312-213123",
                     "product_name": data["product_name"]!,
-                    "callback_url":"https://yourwebsite.com/pay_callback",]
-        
-        LatipaySDK.pay(order: para) {[weak self] (latipayOrder, error) in
-            self?.dealwithLatipayResult(latipayOrder: latipayOrder, error: error)
-        }
-    }
-    
-    @objc func wechatPay(_ btn: UIButton?) {
-        guard let cell = btn?.superview?.superview as? UITableViewCell,
-            let row = tableView.indexPath(for: cell)?.row else {
-                return
-        }
-        let data = dataSource[row]
-        let para = ["payment_method": LatipayMethod.wechatpay.rawValue,
-                    "amount": data["amount"]!,
-                    "merchant_reference":"reference",
-                    "product_name": data["product_name"]!,
-                    "callback_url":"https://yourwebsite.com/pay_callback"]
+                    "callback_url":"https://pay-dev.latipay.net/callback"]
         
         LatipaySDK.pay(order: para) {[weak self] (latipayOrder, error) in
             self?.dealwithLatipayResult(latipayOrder: latipayOrder, error: error)
