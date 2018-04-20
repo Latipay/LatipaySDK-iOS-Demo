@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //or load latipay account (api_key, user_id, wallet_id) from plist
         
-        //LatipaySDK.setup(apiKey: "your latipay apikey", userId: "your latipay userId", walletId: "your latipay walletId")
+//        LatipaySDK.setup(apiKey: "your latipay apikey", userId: "your latipay userId", walletId: "your latipay walletId", wechatAppId: "")
         
         return true
     }
