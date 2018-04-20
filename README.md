@@ -18,7 +18,7 @@ for iOS 9.0 and later, please add the following [Launch Services Key](https://de
 </array>
 ```
 
-### 2. Setup Latipay info, [you can get apiKey here](https://merchant.latipay.co.nz/user/regist.action)
+### 2. Setup Latipay info, [you can get apiKey here](https://merchant.latipay.net)
 
 ```swift
 
