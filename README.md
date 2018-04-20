@@ -85,3 +85,5 @@ Parameters:
 [More info about this notify api](http://doc.latipay.net/v2/latipay-hosted-online.html#Payment-Result-Asynchronous-Notification)
 
 
+TODO Wechat pay
+Add Wechat App id in URL Scheme

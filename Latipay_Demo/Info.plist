@@ -23,7 +23,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>latipayW000000186</string>
+				<string>wx</string>
 			</array>
 		</dict>
 	</array>
