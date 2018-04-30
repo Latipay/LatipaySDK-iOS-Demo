@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LatipaySDK_Swift
+import LatipaySDK
 
 class TableViewController: UITableViewController {
     
@@ -50,6 +50,9 @@ class TableViewController: UITableViewController {
         
         let alipayBtn = cell.viewWithTag(4) as! UIButton
         alipayBtn.addTarget(self, action:#selector(TableViewController.alipay), for: UIControlEvents.touchUpInside)
+        
+        let wechatBtn = cell.viewWithTag(5) as! UIButton
+        wechatBtn.addTarget(self, action:#selector(TableViewController.wechat), for: UIControlEvents.touchUpInside)
 
         return cell
     }
@@ -60,31 +63,44 @@ class TableViewController: UITableViewController {
             return
         }
         let data = dataSource[row]
-        let para = ["payment_method": LatipayMethod.alipay.rawValue,
+        let para = ["payment_method": "alipay",
                     "amount": data["amount"]!,
                     "merchant_reference":"12312-12312312-12312-213123",
                     "product_name": data["product_name"]!,
-                    "callback_url":"https://pay-dev.latipay.net/callback"]
+                    "callback_url":"https://yourwebsite.com/latipay/callback"]
         
-        LatipaySDK.pay(order: para) {[weak self] (latipayOrder, error) in
-            self?.dealwithLatipayResult(latipayOrder: latipayOrder, error: error)
-        }
+        LatipaySDK.payOrder(para, completion: self.dealwithLatipayResult)
     }
     
-    func dealwithLatipayResult(latipayOrder: Dictionary<String, String>?, error: LatipayError?)  {
+    @objc func wechat(_ btn: UIButton?) {
+        guard let cell = btn?.superview?.superview as? UITableViewCell,
+            let row = tableView.indexPath(for: cell)?.row else {
+                return
+        }
+        let data = dataSource[row]
+        let para = ["payment_method": "wechat",
+                    "amount": data["amount"]!,
+                    "merchant_reference":"12312-12312312-12312-213123",
+                    "product_name": data["product_name"]!,
+                    "callback_url":"https://yourwebsite.com/latipay/callback"]
+        
+        LatipaySDK.payOrder(para, completion: self.dealwithLatipayResult)
+    }
+    
+    func dealwithLatipayResult(latipayOrder: Dictionary<String, String>?, error: Error?)  {
         if let e = error {
             UIAlertView(title: "", message: e.localizedDescription, delegate: nil, cancelButtonTitle: "Cancel").show()
             return
         }
         
         if let order = latipayOrder {
-            let orderId = order["order_id"]!
-            let status = order["status"]!           //"unpaid", here always unpaid
-            let method = order["payment_method"]!   //"alipay"
+            let paymentId = order["payment_id"]!
+            let status = order["status"]!           //"pending", here always pending
+            let method = order["payment_method"]!
             
-            print("method: \(method) orderId: \(orderId) status: \(status)")
+            print("method: \(method) paymentId: \(paymentId) status: \(status)")
             
-            //recommend to save orderId in server for checking payment status later.
+            //recommend to save paymentId in server for checking payment status later.
         }
     }
 }

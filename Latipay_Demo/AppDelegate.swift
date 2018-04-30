@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LatipaySDK_Swift
+import LatipaySDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -49,21 +49,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    //< iOS 9
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return self.application(application, open: url)
+        self.dealwithLatipay(url)
+        return true
     }
     
+    //>= iOS 9
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        
-        LatipaySDK.processPayRequest(url: url) { (result, error) in
-            print("latipay result", result as Any, error as Any)
+        self.dealwithLatipay(url)
+        return true
+    }
+    
+    func dealwithLatipay(_ url: URL) {
+        LatipaySDK.processPayRequest(with: url) { (result) in
+            print("latipay result", result)
+            guard let statusString = result["status"],
+                let stausInt = Int(statusString),
+                let status = PaymentStatus(rawValue: stausInt) else {
+                    return
+            }
             
-            //save orderId and status into server for customer
-            if let order = result?["latipay_info"] as? [String: Any], let id = order["orderId"] as? String, let status = order["status"] as? String {
-                UIAlertView(title: "orderId: \(id)", message: "status: \(status)", delegate: nil, cancelButtonTitle: "Cancel").show()
+            let paymentId = result["payment_id"]
+            let method = result["payment_method"]
+            
+            if (status == .paid) {
+                print("paid")
+            }else if (status == .unpaid) {
+                print("unpaid")
+            }else {
+                print("need load the payment result from your own server.")
             }
         }
-        return true
     }
 }
 

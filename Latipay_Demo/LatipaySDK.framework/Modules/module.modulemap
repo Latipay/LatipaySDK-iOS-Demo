@@ -1,0 +1,6 @@
+framework module LatipaySDK {
+  umbrella header "LatipaySDK.h"
+
+  export *
+  module * { export * }
+}

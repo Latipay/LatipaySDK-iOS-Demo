@@ -18,8 +18,8 @@
 		E1D4A15B1FBA3B4700BE2F63 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D4A1571FBA3B4700BE2F63 /* 2.jpg */; };
 		E1D4A15C1FBA3B4700BE2F63 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D4A1581FBA3B4700BE2F63 /* 4.jpg */; };
 		E1D4A15D1FBA3B4700BE2F63 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D4A1591FBA3B4700BE2F63 /* 3.jpg */; };
-		E1D4A1881FBA4A6200BE2F63 /* LatipaySDK_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D4A1871FBA4A6200BE2F63 /* LatipaySDK_Swift.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		E1D4A18C1FBA4BB000BE2F63 /* LatipaySDK_Swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1D4A1871FBA4A6200BE2F63 /* LatipaySDK_Swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E1DBFCB22096D7BE00AE45BE /* LatipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1DBFCB12096D7BE00AE45BE /* LatipaySDK.framework */; };
+		E1DBFCB32096D7BE00AE45BE /* LatipaySDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1DBFCB12096D7BE00AE45BE /* LatipaySDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,7 +29,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E1D4A18C1FBA4BB000BE2F63 /* LatipaySDK_Swift.framework in Embed Frameworks */,
+				E1DBFCB32096D7BE00AE45BE /* LatipaySDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,7 +50,7 @@
 		E1D4A1571FBA3B4700BE2F63 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		E1D4A1581FBA3B4700BE2F63 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		E1D4A1591FBA3B4700BE2F63 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		E1D4A1871FBA4A6200BE2F63 /* LatipaySDK_Swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LatipaySDK_Swift.framework; sourceTree = "<group>"; };
+		E1DBFCB12096D7BE00AE45BE /* LatipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LatipaySDK.framework; path = Latipay_Demo/LatipaySDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1D4A1881FBA4A6200BE2F63 /* LatipaySDK_Swift.framework in Frameworks */,
+				E1DBFCB22096D7BE00AE45BE /* LatipaySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +68,7 @@
 		E1AE1DAA1FB98B4F0032AB1B = {
 			isa = PBXGroup;
 			children = (
+				E1DBFCB12096D7BE00AE45BE /* LatipaySDK.framework */,
 				E1AE1DB51FB98B4F0032AB1B /* Latipay_Demo */,
 				E1AE1DB41FB98B4F0032AB1B /* Products */,
 				E1D4A1621FBA442400BE2F63 /* Frameworks */,
@@ -85,7 +86,6 @@
 		E1AE1DB51FB98B4F0032AB1B /* Latipay_Demo */ = {
 			isa = PBXGroup;
 			children = (
-				E1D4A1871FBA4A6200BE2F63 /* LatipaySDK_Swift.framework */,
 				E1D4A1511FBA34F600BE2F63 /* goods */,
 				E1AE1DB61FB98B4F0032AB1B /* AppDelegate.swift */,
 				E1D4A14D1FBA2FB800BE2F63 /* TableViewController.swift */,
@@ -341,7 +341,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WYFLVU5F9U;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Latipay_Demo",
@@ -366,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WYFLVU5F9U;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Latipay_Demo",
