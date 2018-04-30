@@ -66,7 +66,7 @@ class TableViewController: UITableViewController {
         let para = ["payment_method": "alipay",
                     "amount": data["amount"]!,
                     "merchant_reference":"12312-12312312-12312-213123",
-                    "product_name": data["product_name"]!,
+                    "product_name": data["product_name"]!, //optional
                     "callback_url":"https://yourwebsite.com/latipay/callback"]
         
         LatipaySDK.payOrder(para, completion: self.dealwithLatipayResult)
@@ -81,7 +81,7 @@ class TableViewController: UITableViewController {
         let para = ["payment_method": "wechat",
                     "amount": data["amount"]!,
                     "merchant_reference":"12312-12312312-12312-213123",
-                    "product_name": data["product_name"]!,
+                    "product_name": data["product_name"]!, //optional
                     "callback_url":"https://yourwebsite.com/latipay/callback"]
         
         LatipaySDK.payOrder(para, completion: self.dealwithLatipayResult)
