@@ -4,7 +4,7 @@ Using [Latipay](http://www.latipay.net) sdk to intergrate Alipay payment solutio
 
 ![](screenshot/home.png?)
 
-### 1. Download framework and drag it into your project
+### 1. Download Latipay framework in this demo and drag it into your project
 
 ![](screenshot/framework.png)
 
@@ -15,6 +15,7 @@ for iOS 9.0 and later, please add the following [Launch Services Key](https://de
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>alipay</string>
+    <string>weixin</string>
 </array>
 ```
 
@@ -22,7 +23,7 @@ for iOS 9.0 and later, please add the following [Launch Services Key](https://de
 
 ```swift
 
-LatipaySDK.setup(apiKey: "XXXXXX", userId: "XXXXXX", walletId: "XXXXXX", scheme: "latipay")
+LatipaySDK.setup(withApiKey: "XXXXXX", userId: "XXXXXX", walletId: "XXXXXX")
 
 ```
 
@@ -38,9 +39,9 @@ let para = [
     "callback_url": "https://youwebsite.com/pay_callback"
     ]
 
-LatipaySDK.pay(order: para) { (latipayOrder, error) in
+LatipaySDK.payOrder(para) { (result, error) in
 
-    //...save orderId for check later
+    //...save paymentId for check later
     
 }
 
@@ -52,7 +53,7 @@ LatipaySDK.pay(order: para) { (latipayOrder, error) in
 func application(_ app: UIApplication, open url: URL, 
     options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     
-    LatipaySDK.processLatipayRequest(url: url) { (latipayOrder, error) in
+    LatipaySDK.processPayRequest(with: url) { (result) in
 
         //save orderId and status into server
     }
