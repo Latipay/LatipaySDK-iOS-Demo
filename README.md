@@ -1,8 +1,16 @@
 # LatipaySDK for iOS app
 
-Using [Latipay](http://www.latipay.net) sdk to intergrate Alipay payment solution. Wechat pay coming soon.
+Using [Latipay](http://www.latipay.net) sdk to intergrate Alipay and Wechat pay payment solution. Alipay or Wechat app is required.
 
 ![](screenshot/home.png?)
+
+### What you must have before using this SDK. If you don't know what they are, please contact us.
+
+* user id
+* wallet id
+* api key
+* wechat app id
+* alipay or wechat app installed
 
 ### 1. Download Latipay framework in this demo and drag it into your project
 
@@ -27,7 +35,7 @@ LatipaySDK.setup(withApiKey: "XXXXXX", userId: "XXXXXX", walletId: "XXXXXX")
 
 ```
 
-### 3. App user purchases with goods using alipay app
+### 3. How to use Alipay app to pay?
 
 ```swift
 
@@ -35,34 +43,65 @@ let para = [
     "payment_method": "alipay",
     "amount": "0.01",
     "merchant_reference":"12312-12312312",
-    "product_name": "Fossil Women's Rose Goldtone Blane Watch",
+    "product_name": "Fossil Women's Rose Goldtone Blane Watch", //optional
     "callback_url": "https://youwebsite.com/pay_callback"
     ]
 
 LatipaySDK.payOrder(para) { (result, error) in
 
     //...save paymentId for check later
-    
+
 }
 
 ```
 
-### 4. Alipay app will send the result of payment to your app through scheme.
+### 4. How to use Wechat app to pay?
 
 ```swift
-func application(_ app: UIApplication, open url: URL, 
-    options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-    
-    LatipaySDK.processPayRequest(with: url) { (result) in
 
+let para = [
+    "payment_method": "wechat",
+    "amount": "0.01",
+    "merchant_reference":"12312-12312312",
+    "product_name": "Fossil Women's Rose Goldtone Blane Watch", //optional
+    "callback_url": "https://youwebsite.com/pay_callback"
+    ]
+
+LatipaySDK.payOrder(para) { (result, error) in
+
+    //...save paymentId for check later
+
+}
+
+```
+
+### 5. Alipay or Wechat app will send the result of payment to your app through schemes.
+
+* For Alipay app. Please set the scheme: latipay$wallet_id, for example: latipayW00000001
+* For Wechat app. Please set `wechat app id` as the scheme.
+
+```swift
+func application(_ app: UIApplication, open url: URL,
+    options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+
+    LatipaySDK.processPayRequest(with: url) { (result) in
         //save orderId and status into server
+        //..
+
+        if (status == .paid) {
+
+        }else if (status == .unpaid) {
+
+        }else {
+
+        }
     }
-    
+
     return true
 }
 ```
 
-### 5. In your web server, please support the below api for callback when payment successful or failed
+### 6. In your web server, please support the below api for callback when payment successful or failed
 
 ```
 POST https://yourwebsite.com/pay_callback
