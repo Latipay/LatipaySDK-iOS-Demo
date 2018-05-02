@@ -101,7 +101,7 @@ func application(_ app: UIApplication, open url: URL,
 }
 ```
 
-### 6. In your web server, please support the below api for callback when payment successful or failed
+### 6. When calling LatipaySDK.payOrder, please set the `callback_url` for receiving the result of payment in your backend server.
 
 ```
 POST https://yourwebsite.com/pay_callback
