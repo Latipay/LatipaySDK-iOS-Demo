@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, PaymentStatus) {
 @interface LatipaySDK : NSObject
 
 #ifdef DEBUG
-+ (void)setupDemoAccount;
++ (void)setupDemoAccountOnlyWorkForAlipay;
 #endif
 
 + (void)setupWithApiKey:(NSString *_Nonnull)apiKey userId:(NSString *_Nonnull)userId walletId:(NSString *_Nonnull)walletId;

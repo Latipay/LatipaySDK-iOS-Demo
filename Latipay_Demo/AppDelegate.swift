@@ -17,16 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        LatipaySDK.setupDemoAccount()
-
         /*
          what you must have before using this SDK
          1. api_key, user_id, wallet_id
          2. wechat app id
          */
         
+        
         //TODO: setup your own latipay account
 //        LatipaySDK.setup(withApiKey: "", userId: "", walletId: "")
+        
+        //demo account perhaps canot work properly.
+        LatipaySDK.setupDemoAccountOnlyWorkForAlipay()
         
         return true
     }
