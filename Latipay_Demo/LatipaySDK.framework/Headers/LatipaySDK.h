@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, PaymentStatus) {
     kPaymentStatusPaid = 0,
     kPaymentStatusUnpaid = 10,
     kPaymentStatusPending = 20,
-    kPaymentStatusNeedQueryFromYourOwnServer = 30
+    kPaymentStatusNeedQueryServer = 30
 };
 
 @interface LatipaySDK : NSObject
