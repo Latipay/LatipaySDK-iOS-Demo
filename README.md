@@ -101,10 +101,11 @@ func application(_ app: UIApplication, open url: URL,
 }
 ```
 
-### 6. When calling LatipaySDK.payOrder, please set the `callback_url` for receiving the result of payment in your backend server.
+### 6. When calling LatipaySDK.pay(), please set the `callback_url` for receiving the result of payment in your backend server. Latipay will notify your webserver the result through this api.
 
 ```
 POST https://yourwebsite.com/pay_callback
+Content-Type: application/x-www-form-urlencoded
 ```
 
 Parameters:
