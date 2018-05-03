@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         /*
          what you must have before using this SDK
-         1. api_key, user_id, wallet_id
-         2. wechat app id
+         for both alipay and wechat pay: api_key, user_id, wallet_id
+         for wechat: wechat app id
          */
         
         
