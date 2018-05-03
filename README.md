@@ -47,7 +47,7 @@ let para = [
     "callback_url": "https://youwebsite.com/pay_callback"
     ]
 
-LatipaySDK.payOrder(para) { (result, error) in
+LatipaySDK.pay(para) { (result, error) in
 
     //...save paymentId for check later
 
@@ -67,7 +67,7 @@ let para = [
     "callback_url": "https://youwebsite.com/pay_callback"
     ]
 
-LatipaySDK.payOrder(para) { (result, error) in
+LatipaySDK.pay(para) { (result, error) in
 
     //...save paymentId for check later
 
@@ -84,7 +84,7 @@ LatipaySDK.payOrder(para) { (result, error) in
 func application(_ app: UIApplication, open url: URL,
     options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
 
-    LatipaySDK.processPayRequest(with: url) { (result) in
+    LatipaySDK.processPaymentResult(with: url) { (result) in
         //save orderId and status into server
         //..
 
