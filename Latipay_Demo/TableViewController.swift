@@ -94,9 +94,9 @@ class TableViewController: UITableViewController {
         }
         
         if let order = latipayOrder {
-            let transactionId = order["transaction_id"]!
-            let status = order["status"]!           //"pending", here always pending
-            let method = order["payment_method"]!
+            let transactionId = order["transaction_id"]
+            let status = order["status"]           //"pending", here always pending
+            let method = order["payment_method"]
             
             print("method: \(method) transactionId: \(transactionId) status: \(status)")
             
