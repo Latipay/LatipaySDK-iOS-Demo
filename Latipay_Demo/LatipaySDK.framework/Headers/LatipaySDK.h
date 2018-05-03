@@ -27,11 +27,9 @@ typedef NS_ENUM(NSInteger, PaymentStatus) {
 
 + (void)setupWithApiKey:(NSString *_Nonnull)apiKey userId:(NSString *_Nonnull)userId walletId:(NSString *_Nonnull)walletId;
 
-+ (void)payOrder:(NSDictionary<NSString *, NSString *> *_Nonnull)order completion:(_Nonnull CompletionErrorBlock)completion;
++ (void)pay:(NSDictionary<NSString *, NSString *> *_Nonnull)order completion:(_Nonnull CompletionErrorBlock)completion;
 
-+ (void)fetchPaymentStatusWithPaymentId:(NSString *_Nonnull)paymentId completion:(_Nonnull CompletionErrorBlock)completion;
-
-+ (void)processPayRequestWithUrl:(NSURL *_Nonnull)url completion:(_Nonnull PaymentResultBlock)completion;
++ (void)processPaymentResultWithUrl:(NSURL *_Nonnull)url completion:(_Nonnull PaymentResultBlock)completion;
 
 
 @end

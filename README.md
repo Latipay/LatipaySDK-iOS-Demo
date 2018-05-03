@@ -42,7 +42,7 @@ LatipaySDK.setup(withApiKey: "XXXXXX", userId: "XXXXXX", walletId: "XXXXXX")
 let para = [
     "payment_method": "alipay",
     "amount": "0.01",
-    "merchant_reference":"12312-12312312",
+    "merchant_reference":"12312-12312312", //must be unique in your system
     "product_name": "Fossil Women's Rose Goldtone Blane Watch", //optional
     "callback_url": "https://youwebsite.com/pay_callback"
     ]
@@ -62,7 +62,7 @@ LatipaySDK.payOrder(para) { (result, error) in
 let para = [
     "payment_method": "wechat",
     "amount": "0.01",
-    "merchant_reference":"12312-12312312",
+    "merchant_reference":"12312-12312312", //must be unique in your system
     "product_name": "Fossil Women's Rose Goldtone Blane Watch", //optional
     "callback_url": "https://youwebsite.com/pay_callback"
     ]

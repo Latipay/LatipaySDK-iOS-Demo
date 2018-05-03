@@ -65,11 +65,11 @@ class TableViewController: UITableViewController {
         let data = dataSource[row]
         let para = ["payment_method": "alipay",
                     "amount": data["amount"]!,
-                    "merchant_reference":"12312-12312312-12312-213123",
+                    "merchant_reference":"12312-12312312-12312-213123", //must be unique in your system
                     "product_name": data["product_name"]!, //optional
                     "callback_url":"https://yourwebsite.com/latipay/callback"]
         
-        LatipaySDK.payOrder(para, completion: self.dealwithLatipayResult)
+        LatipaySDK.pay(para, completion: self.dealwithLatipayResult)
     }
     
     @objc func wechat(_ btn: UIButton?) {
@@ -80,11 +80,11 @@ class TableViewController: UITableViewController {
         let data = dataSource[row]
         let para = ["payment_method": "wechat",
                     "amount": data["amount"]!,
-                    "merchant_reference":"12312-12312312-12312-213123",
+                    "merchant_reference":"12312-12312312-12312-213123", //must be unique in your system
                     "product_name": data["product_name"]!, //optional
                     "callback_url":"https://yourwebsite.com/latipay/callback"]
         
-        LatipaySDK.payOrder(para, completion: self.dealwithLatipayResult)
+        LatipaySDK.pay(para, completion: self.dealwithLatipayResult)
     }
     
     func dealwithLatipayResult(latipayOrder: Dictionary<String, String>?, error: Error?)  {
@@ -94,13 +94,13 @@ class TableViewController: UITableViewController {
         }
         
         if let order = latipayOrder {
-            let paymentId = order["payment_id"]!
+            let transactionId = order["transaction_id"]!
             let status = order["status"]!           //"pending", here always pending
             let method = order["payment_method"]!
             
-            print("method: \(method) paymentId: \(paymentId) status: \(status)")
+            print("method: \(method) transactionId: \(transactionId) status: \(status)")
             
-            //recommend to save paymentId in server for checking payment status later.
+            //recommend to save transactionId in server for checking payment status later.
         }
     }
 }

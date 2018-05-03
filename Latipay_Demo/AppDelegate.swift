@@ -16,13 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
         LatipaySDK.setupDemoAccount()
+
+        /*
+         what you must have before using this SDK
+         1. api_key, user_id, wallet_id
+         2. wechat app id
+         */
         
-        //or load latipay account (api_key, user_id, wallet_id) from plist
-        
-//        LatipaySDK.setup(apiKey: "your latipay apikey", userId: "your latipay userId", walletId: "your latipay walletId", wechatAppId: "")
+        //TODO: setup your own latipay account
+//        LatipaySDK.setup(withApiKey: "", userId: "", walletId: "")
         
         return true
     }
@@ -62,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func dealwithLatipay(_ url: URL) {
-        LatipaySDK.processPayRequest(with: url) { (result) in
+        LatipaySDK.processPaymentResult(with: url) { (result) in
             print("latipay result", result)
             guard let statusString = result["status"],
                 let stausInt = Int(statusString),
@@ -70,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     return
             }
             
-            let paymentId = result["payment_id"]
+            let transactionId = result["transaction_id"]
             let method = result["payment_method"]
             
             if (status == .paid) {
