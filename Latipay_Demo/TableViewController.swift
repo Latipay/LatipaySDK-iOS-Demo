@@ -65,7 +65,7 @@ class TableViewController: UITableViewController {
         let data = dataSource[row]
         let para = ["payment_method": "alipay",
                     "amount": data["amount"]!,
-                    "merchant_reference":"12312-12312312-12312-213123", //must be unique in your system
+                    "merchant_reference":Int(Date().timeIntervalSince1970).description, //must be unique in your system
                     "product_name": data["product_name"]!, //optional
                     "callback_url":"https://yourwebsite.com/latipay/callback"]
         
@@ -80,7 +80,7 @@ class TableViewController: UITableViewController {
         let data = dataSource[row]
         let para = ["payment_method": "wechat",
                     "amount": data["amount"]!,
-                    "merchant_reference":"12312-12312312-12312-213123", //must be unique in your system
+                    "merchant_reference":Int(Date().timeIntervalSince1970).description, //must be unique in your system
                     "product_name": data["product_name"]!, //optional
                     "callback_url":"https://yourwebsite.com/latipay/callback"]
         
