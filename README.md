@@ -69,7 +69,7 @@ let para = [
 
 LatipaySDK.pay(para) { (result, error) in
 
-    //...save paymentId for check later
+    //the payment status is pending
 
 }
 
@@ -93,7 +93,7 @@ func application(_ app: UIApplication, open url: URL,
         }else if (status == .unpaid) {
 
         }else {
-
+            //please query the result from your own server.
         }
     }
 
