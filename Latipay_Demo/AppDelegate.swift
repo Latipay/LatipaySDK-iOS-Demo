@@ -19,16 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         /*
          what you must have before using this SDK
-         for both alipay and wechat pay: api_key, user_id, wallet_id
-         for wechat: wechat app id
+         for alipay: api_key, user_id, wallet_id
+         for wechat: api_key, user_id, wallet_id, wechat app id
          */
         
+        
+        //demo account perhaps canot work properly.
+        LatipaySDK.setupDemoAccountOnlyWorkForAlipay()
         
         //TODO: setup your own latipay account
 //        LatipaySDK.setup(withApiKey: "", userId: "", walletId: "")
         
-        //demo account perhaps canot work properly.
-        LatipaySDK.setupDemoAccountOnlyWorkForAlipay()
         
         return true
     }
@@ -76,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     return
             }
             
+            let merchant_reference = result["merchant_reference"]
             let transactionId = result["transaction_id"]
             let method = result["payment_method"]
             
