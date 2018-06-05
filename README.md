@@ -1,6 +1,6 @@
 # LatipaySDK for iOS app
 
-Using [Latipay](http://www.latipay.net) sdk to intergrate Alipay and Wechat pay payment solution. Alipay or Wechat app is required.
+Using [Latipay](http://www.latipay.net) sdk to intergrate Alipay and Wechat pay payment solution. Alipay or Wechat app is required. Please run this app on a device rather than simulator.
 
 ![](screenshot/home.png?)
 
