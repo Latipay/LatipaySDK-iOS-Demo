@@ -133,7 +133,7 @@ Response:
 
 Aliapy SDK download: https://opendocs.alipay.com/open/54/104509
 
-Integrate Alipay SDK to make payment: https://opendocs.alipay.com/open/204/105295
+Integrate Alipay SDK to make payment: iOS https://opendocs.alipay.com/open/204/105295 Android https://opendocs.alipay.com/open/204/105296
 
 ```
 NSMutableString *orderString = [NSMutableString string];
