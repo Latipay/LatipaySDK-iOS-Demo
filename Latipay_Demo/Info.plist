@@ -21,14 +21,18 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>latipay_alipay</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>latipaydemo</string>
+				<string>latipayyour_wallet_id</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>latipay_wechat</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>your_wechat_app_id</string>
@@ -41,6 +45,7 @@
 	<array>
 		<string>alipay</string>
 		<string>weixin</string>
+		<string>weixinULAPI</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

@@ -21,15 +21,35 @@ typedef NS_ENUM(NSInteger, PaymentStatus) {
 
 @interface LatipaySDK : NSObject
 
-#ifdef DEBUG
-+ (void)setupDemoAccountOnlyWorkForAlipay;
-#endif
+/**
+ * Unsafe method, please consider to create a transaction in your back-end server first,
+ * and then call payWith(host:nonce:wechatUniversalLink:completion) to launch wechat and alipay app to pay
+ *
+ * This method is used only for debug
+ */
++ (void)setupWithApiKey:(NSString *_Nonnull)apiKey userId:(NSString *_Nonnull)userId walletId:(NSString *_Nonnull)walletId wechatUniversalLink:(NSString *_Nonnull)universalLink __deprecated_msg("please consider to create a transaction in your back-end server first, and then call payWith(host:nonce:wechatUniversalLink:completion) to launch wechat and alipay app to pay");
 
-+ (void)setupWithApiKey:(NSString *_Nonnull)apiKey userId:(NSString *_Nonnull)userId walletId:(NSString *_Nonnull)walletId;
+/**
+ * Unsafe method, please consider to create a transaction in your back-end server first,
+ * and then call payWith(host:nonce:wechatUniversalLink:completion) to launch wechat and alipay app to pay
+ *
+ * This method is used only for debug
+ */
++ (void)pay:(NSDictionary<NSString *, NSString *> *_Nonnull)order completion:(_Nonnull CompletionErrorBlock)completion __deprecated_msg("please consider to create a transaction in your back-end server first, and then call payWith(host:nonce:wechatUniversalLink:completion) to launch wechat and alipay app to pay");
 
-+ (void)pay:(NSDictionary<NSString *, NSString *> *_Nonnull)order completion:(_Nonnull CompletionErrorBlock)completion;
+/**
+ * Once a transaction was created in your back-end server, call this method to launch wechat and alipay app to pay
+ */
++ (void)payWithHost:(NSString *_Nonnull)host nonce:(NSString *_Nonnull)nonce wechatUniversalLink:(NSString *_Nonnull)universalLink completion:(_Nonnull CompletionErrorBlock)completion;
 
+/**
+ * Check payment result for wechatpay
+ */
++ (BOOL)processPaymentResultWithUserActivity:(NSUserActivity *_Nonnull)userActivity completion:(_Nonnull PaymentResultBlock)completion;
+
+/**
+ * Check payment result for alipay
+ */
 + (void)processPaymentResultWithUrl:(NSURL *_Nonnull)url completion:(_Nonnull PaymentResultBlock)completion;
-
 
 @end

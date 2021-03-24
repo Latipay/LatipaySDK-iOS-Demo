@@ -17,7 +17,7 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
 
         let url = Bundle.main.url(forResource: "list", withExtension: "plist")!
-        dataSource = NSArray(contentsOf: url)! as! Array<Dictionary<String, String>>
+        dataSource = NSArray(contentsOf: url)! as! [[String: String]]
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,10 +49,10 @@ class TableViewController: UITableViewController {
         priceLbl.text = "$\(obj["amount"]!)"
         
         let alipayBtn = cell.viewWithTag(4) as! UIButton
-        alipayBtn.addTarget(self, action:#selector(TableViewController.alipay), for: UIControlEvents.touchUpInside)
+        alipayBtn.addTarget(self, action:#selector(TableViewController.alipay), for: UIControl.Event.touchUpInside)
         
         let wechatBtn = cell.viewWithTag(5) as! UIButton
-        wechatBtn.addTarget(self, action:#selector(TableViewController.wechat), for: UIControlEvents.touchUpInside)
+        wechatBtn.addTarget(self, action:#selector(TableViewController.wechat), for: UIControl.Event.touchUpInside)
 
         return cell
     }
@@ -62,6 +62,7 @@ class TableViewController: UITableViewController {
             let row = tableView.indexPath(for: cell)?.row else {
             return
         }
+        
         let data = dataSource[row]
         let para = ["payment_method": "alipay",
                     "amount": data["amount"]!,
@@ -69,7 +70,16 @@ class TableViewController: UITableViewController {
                     "product_name": data["product_name"]!, //optional
                     "callback_url":"https://yourwebsite.com/latipay/callback"]
         
+        #if DEBUG
+        //you can call this method for a quick demo, it's not recommend use this method in production
         LatipaySDK.pay(para, completion: self.dealwithLatipayResult)
+        #else
+        let hostUrl = ""
+        let nonce = ""
+        LatipaySDK.pay(withHost: hostUrl, nonce: nonce, wechatUniversalLink: "") { (result, error) in
+            
+        }
+        #endif
     }
     
     @objc func wechat(_ btn: UIButton?) {
@@ -84,7 +94,16 @@ class TableViewController: UITableViewController {
                     "product_name": data["product_name"]!, //optional
                     "callback_url":"https://yourwebsite.com/latipay/callback"]
         
+        #if DEBUG
+        //you can call this method for a quick demo, it's not recommend use this method in production
         LatipaySDK.pay(para, completion: self.dealwithLatipayResult)
+        #else
+        let hostUrl = ""
+        let nonce = ""
+        LatipaySDK.pay(withHost: hostUrl, nonce: nonce, wechatUniversalLink: "https://your.website.com/app/") { (result, error) in
+            
+        }
+        #endif
     }
     
     func dealwithLatipayResult(latipayOrder: Dictionary<String, String>?, error: Error?)  {
