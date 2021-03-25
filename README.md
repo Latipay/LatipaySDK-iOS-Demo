@@ -42,6 +42,8 @@ Wechat:
 * set a scheme for alipay, with the format of latipay$wallet_id, e.g. latipayW00000001
 * Enable Associated Domains in project for wechatpay
 	![](screenshot/domains.png)
+* Enable Associated Domains for App ID Configuration in [apple developer website](https://developer.apple.com/account)
+	![](screenshot/domains1.png)
 * enable iOS deeplink: add deeplink configuration file(apple-app-site-association) in your server(e.g. example.com) and make sure it can be loaded as https://example.com/app/apple-app-site-association
 
 	```
