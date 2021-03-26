@@ -25,7 +25,7 @@ Wechat:
 * wechat app installed
 
 ### 1. iOS project setup
-* Download Latipay framework in this demo and drag it into your project
+* download Latipay framework in this demo and drag it into your project
 
 	![](screenshot/framework.png)
 * add the following [Launch Services Key](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html) into info.plist;
@@ -40,9 +40,9 @@ Wechat:
 	```
 * set your wechat app id as a scheme for wechatpay
 * set a scheme for alipay, with the format of latipay$wallet_id, e.g. latipayW00000001
-* Enable Associated Domains in project for wechatpay
+* enable Associated Domains in project for wechatpay
 	![](screenshot/domains.png)
-* Enable Associated Domains for App ID Configuration in [apple developer website](https://developer.apple.com/account)
+* enable Associated Domains for App ID Configuration in [apple developer website](https://developer.apple.com/account)
 	![](screenshot/domains1.png)
 * enable iOS deeplink: add deeplink configuration file(apple-app-site-association) in your server(e.g. example.com) and make sure it can be loaded as https://example.com/app/apple-app-site-association
 
